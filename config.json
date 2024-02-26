@@ -1,15 +1,16 @@
 {
     "poolHost": "https://pool.cryptosymbiotic.com",
+
     "coin": "Bitcoin Symbiotic",
     "symbol": "BTCS",
-    "coinUnits": 1000000000000,
+    "coinUnits": 1000000000,
     "coinDecimalPlaces": 9,
     "coinDifficultyTarget": 120,
-
+    "deamonType": "default",
     "cnAlgorithm": "cryptonight",
     "cnVariant": 1,
     "cnBlobType": 2,
-    
+
     "logging": {
         "files": {
             "level": "info",
@@ -21,30 +22,31 @@
             "colors": true
         }
     },
+
     "poolServer": {
         "enabled": true,
         "clusterForks": "auto",
-        "poolAddress": "btcsy2MsGggaFJgcz5anwwjVSzCEgkq55V8HvCXanXsQAxHoe3djwPnBoEQDWKQrALUAfia7mgtz5Xs4TcVZi9vVCJozcfnEA1c",
+        "poolAddress": "Wallet",
         "intAddressPrefix": null,
         "blockRefreshInterval": 1000,
         "minerTimeout": 900,
-        "sslCert": "/etc/letsencrypt/live/pool.cryptosymbiotic.com/cert.pem",
-        "sslKey": "/etc/letsencrypt/live/pool.cryptosymbiotic.com/privkey.pem",
-        "sslCA": "/etc/letsencrypt/live/pool.cryptosymbiotic.com/chain.pem",
+        "sslCert": "/etc/letsencrypt/live/?/cert.pem",
+        "sslKey": "/etc/letsencrypt/live/?/privkey.pem",
+        "sslCA": "/etc/letsencrypt/live/?/chain.pem",
         "ports": [
             {
                 "port": 3333,
-                "difficulty": 100000,
+                "difficulty": 10000,
                 "desc": "Low end hardware"
             },
             {
                 "port": 4444,
-                "difficulty": 15000,
+                "difficulty": 30000,
                 "desc": "Mid range hardware"
             },
             {
                 "port": 5555,
-                "difficulty": 25000,
+                "difficulty": 50000,
                 "desc": "High end hardware"
             },
             {
@@ -52,33 +54,27 @@
                 "difficulty": 500000,
                 "desc": "Cloud-mining / NiceHash"
             },
-            {
+			{
                 "port": 8888,
-                "difficulty": 25000,
-                "desc": "Hidden port",
-                "hidden": true
-            },
-            {
-                "port": 9999,
                 "difficulty": 20000,
                 "desc": "SSL connection",
-                "ssl": true
-            }
+                "ssl": false
+                }
         ],
         "varDiff": {
             "minDiff": 100,
-            "maxDiff": 100000,
+            "maxDiff": 100000000,
             "targetTime": 120,
             "retargetTime": 30,
             "variancePercent": 30,
             "maxJump": 100
         },
-        "fixedDiff": {
-            "enabled": true,
-            "separator": "+"
-        },
         "paymentId": {
             "addressSeparator": "."
+        },
+        "fixedDiff": {
+            "enabled": true,
+            "addressSeparator": "+"
         },
         "shareTrust": {
             "enabled": true,
@@ -95,32 +91,36 @@
         },
         "slushMining": {
             "enabled": false,
-            "weight": 300
-        }
+            "weight": 300,
+            "blockTime": 60,
+            "lastBlockCheckRate": 1
+         }
     },
+
     "payments": {
         "enabled": true,
-        "interval": 120,
+        "interval": 50,
         "maxAddresses": 50,
-        "mixin": 0,
-        "transferFee": 1,
-        "dynamicTransferFee": false,
-        "minerPayFee": true,
-        "minPayment": 2000000000000,
+        "mixin": 2,
+        "priority": 0,
+        "transferFee": 10000000000,
+        "dynamicTransferFee": true,
+        "minerPayFee" : false,
+        "minPayment": 200000000,
         "maxPayment": null,
-        "maxTransactionAmount": 200000000000000,
-        "denomination": 1000000000000
+        "maxTransactionAmount": 200000000000,
+        "denomination": 1000000000
     },
+
     "blockUnlocker": {
-        "enabled": false,
+        "enabled": true,
         "interval": 30,
         "depth": 10,
-        "poolFee": 0.7,
+        "poolFee": 1.0,
         "devDonation": 0,
-        "networkFee": null,
-        "useFirstVout": false,
-        "fixBlockHeightRPC": false
+        "networkFee": 1
     },
+
     "api": {
         "enabled": true,
         "hashrateWindow": 900,
@@ -129,29 +129,33 @@
         "port": 8119,
         "blocks": 30,
         "payments": 30,
-        "password": "your_password",
+        "password": "your-admin-dashboard-password",
         "ssl": true,
         "sslPort": 8222,
-        "sslCert": "/etc/letsencrypt/live/pool.cryptosymbiotic.com/cert.pem",
-        "sslKey": "/etc/letsencrypt/live/pool.cryptosymbiotic.com/privkey.pem",
-        "sslCA": "/etc/letsencrypt/live/pool.cryptosymbiotic.com/chain.pem",
+        "sslCert": "/etc/letsencrypt/live/?/cert.pem",
+        "sslKey": "/etc/letsencrypt/live/?/privkey.pem",
+        "sslCA": "/etc/letsencrypt/live/?/chain.pem",
         "trustProxyIP": true
     },
+
     "daemon": {
         "host": "127.0.0.1",
         "port": 11333
     },
+
     "wallet": {
         "host": "127.0.0.1",
-        "port": 8070
+        "port": 18888
     },
+
     "redis": {
         "host": "127.0.0.1",
         "port": 6379,
         "auth": null,
         "db": 0,
-        "cleanupInterval": 15
+	"cleanupInterval": 15
     },
+
     "notifications": {
         "emailTemplate": "email_templates/default.txt",
         "emailSubject": {

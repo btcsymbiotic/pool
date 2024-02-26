@@ -7,10 +7,6 @@
 node-cryptonote-pool
 ====================
 
-High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Bytecoin, Monero, QuazarCoin, HoneyPenny, etc..
-Comes with lightweight example front-end script which uses the pool's AJAX API.
-
-
 
 #### Table of Contents
 * [Features](#features)
@@ -61,27 +57,6 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * Worker login validation (make sure miners are using proper wallet addresses for mining)
 
 
-### Community / Support
-
-* [CryptoNote Forum](https://forum.cryptonote.org/)
-* [Bytecoin Github](https://github.com/amjuarez/bytecoin)
-* [Monero Github](https://github.com/monero-project/bitmonero)
-* [Monero Announcement Thread](https://bitcointalk.org/index.php?topic=583449.0)
-* IRC (freenode)
-  * Support / general discussion join #monero: https://webchat.freenode.net/?channels=#monero
-  * Development discussion join #monero-dev: https://webchat.freenode.net/?channels=#monero-dev
-
-
-#### Pools Using This Software
-
-* http://xminingpool.com
-* http://xmr.poolto.be
-* https://moneropool.com
-* http://monero.crypto-pool.fr
-* https://minexmr.com
-
-A pool must be operational for 6 months or more before it can be added to this list.
-
 
 Usage
 ===
@@ -111,12 +86,12 @@ you are using - a good place to start with redis is [data persistence](http://re
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/zone117x/node-cryptonote-pool.git pool
+git clone https://github.com/btcsymbiotic/pool.git pool
 cd pool
 
-nvm install 0.10.48
-nvm use 0.10.48
-nvm alias default 0.10.48
+nvm install 10
+nvm use 10
+nvm alias default 10
 nvm use default
 
 npm update
@@ -140,7 +115,7 @@ Explanation for each field:
 "coin": "monero",
 
 /* Used for front-end display */
-"symbol": "MRO",
+"symbol": "BTCS",
 
 "logging": {
 
